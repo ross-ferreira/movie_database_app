@@ -1,43 +1,51 @@
 import React, { Fragment,useState, Component, useEffect } from "react";
 
-import axios from "axios";
+import { connect } from 'react-redux';
 
-function SearchForm({
-  getDataSet,
-  searchResults,
-  movieArticle}) 
-{
+import { Link } from 'react-router-dom';
 
-  useEffect(() => {
-    getDataSet();
-}, []);
+import { getMovieData} from '../data/actions/api'
 
-  const initalform={
-    title:"",
-    year:"",
-    plot:"short",
+
+const mapStateToProps = (state) => {
+    
+    return {
+        // srcImage: state.images[(state.counter -1)].url,
+        movieArticle:state.movieArticle,
+        searchResults:state.searchResults,
+    }
 }
 
-const [formValues,setFormValues]= useState(initalform)
-
-
-const handleFormChange = (e) => setFormValues({
-    ...formValues,
-    [e.target.name]: e.target.name === 'distance' ? parseInt(e.target.value) : e.target.value,
-  });
-
-
-const handleSubmit= e => {
-    e.preventDefault();
+const mapDispatchToProps = (dispatch) => {
+  return {
+      getDataSetId: (idSearchQuery) => {
+          dispatch(getMovieData(idSearchQuery))
+      }
+  }
 }
 
+function SearchResults ({searchResults,movieArticle,getDataSetId}){
+
+
+
+const handleArticle= index => {
+    // e.preventDefault();
+    let searchQuery=`?apikey=9bac2e43&i=${searchResults[index].imdbID}`;
+    console.log("query",searchResults[index].imdbID)
+    getDataSetId(searchQuery);
+}
 
   return (
     <>
       <header><h1>Search Results</h1></header>
       <div class="searchResults">
           {searchResults.map((item,index)=>(
-            <p>{item.Title}</p>
+            <>
+            <p key={index}>{index +1})</p>
+            <Link to="/movie">
+              <p onClick={()=>(handleArticle(index))} imdbId={item.imdbID}>{item.Title}</p>
+            </Link>
+            </>
           ))}
       </div>
 
@@ -45,6 +53,6 @@ const handleSubmit= e => {
   );
 }
 
-export default SearchForm;
+export default connect(mapStateToProps,mapDispatchToProps)(SearchResults);
 
 

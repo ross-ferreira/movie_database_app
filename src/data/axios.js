@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default axios.create({
-baseURL: "http://www.omdbapi.com/?s=speed&apikey=9bac2e43", 
+baseURL: "http://www.omdbapi.com/", 
         headers: {
             Accept: "application/json",
         },

@@ -1,16 +1,16 @@
 import React, { Fragment,useState, Component, useEffect } from "react";
 
 import axios from "axios";
+import SearchResults from "../SearchResults";
 
 function SearchForm({
   getDataSet,
-  searchResults,
-  movieArticle}) 
+  }) 
 {
-
-  useEffect(() => {
-    getDataSet();
-}, []);
+  
+  // useEffect(() => {
+  //   getDataSet(searchQuery);
+  // }, []);
 
   const initalform={
     title:"",
@@ -23,27 +23,28 @@ const [formValues,setFormValues]= useState(initalform)
 
 const handleFormChange = (e) => setFormValues({
     ...formValues,
-    [e.target.name]: e.target.name === 'distance' ? parseInt(e.target.value) : e.target.value,
+    [e.target.name]: e.target.value,
   });
 
+let searchQuery=`?apikey=9bac2e43&s=${formValues.title}&y=${formValues.year}`;
 
-const handleSubmit= e => {
+const handleSearch= e => {
     e.preventDefault();
+    getDataSet(searchQuery);
 }
-
 
   return (
     <div>
       <header><h1>Movie Database</h1></header>
       <div class="titleSearch">
-      <form onSubmit={handleSubmit} class="pb-5">
+      <form class="pb-5">
               <label>Title</label>
               <div class="input-group">
                   <input placeholder="Enter Title" onChange={handleFormChange} type="text" name="title" value={formValues.title} />
               </div>
               <label>Year</label>
               <div class="input-group">
-                  <input placeholder="Enter Title" onChange={handleFormChange} type="text" name="year" value={formValues.year} />
+                  <input placeholder="Enter Year" onChange={handleFormChange} type="text" name="year" value={formValues.year} />
               </div>
               <label>Plot</label>
               <div class="input-group">
@@ -51,10 +52,10 @@ const handleSubmit= e => {
                     <option value="short">Short</option>
                     <option value="full">Full</option>
                 </select>
-              </div>
-              <button className="btn" type="submit">Search</button>
-              <button className="btn" type="submit">Reset</button>
+              </div>             
           </form>
+          <button onClick={handleSearch} className="btn" type="submit">Search</button>
+          <button className="btn" type="submit">Reset</button>
           <div>
             {formValues.title}
           </div>
@@ -64,10 +65,7 @@ const handleSubmit= e => {
           <div>
             {formValues.plot}
           </div>
-          {searchResults.map((item,index)=>(
-            <p>{item.Title}</p>
-          ))}
-
+          <SearchResults/>
       </div>
 
     </div>

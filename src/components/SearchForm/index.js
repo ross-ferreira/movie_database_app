@@ -16,8 +16,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getDataSet: () => {
-            dispatch(getData())
+        getDataSet: (searchQuery) => {
+            dispatch(getData(searchQuery))
         }
     }
 }
