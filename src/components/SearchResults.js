@@ -15,6 +15,7 @@ const mapStateToProps = (state) => {
         // srcImage: state.images[(state.counter -1)].url,
         movieArticle:state.movieArticle,
         searchResults:state.searchResults,
+        totalResults:state.totalResults,
     }
 }
 
@@ -26,7 +27,7 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-function SearchResults ({searchResults,movieArticle,getDataSetId}){
+function SearchResults ({searchResults,movieArticle,getDataSetId,totalResults}){
 
 
 
@@ -41,13 +42,14 @@ const handleArticle= index => {
     <>
       {searchResults.length < 1 ? null:
       <>
-        <h1>Search Results</h1> 
+        <h1>Search Results</h1>
+        <h2>No of Results: {totalResults}</h2> 
           <div class="searchResults">
               {searchResults.Response !== "False" ? searchResults.map((item,index)=>(
                 <>
                 <p key={index}>{index +1})</p>
                 <Link to="/movie">
-                  <p onClick={()=>(handleArticle(index))} imdbId={item.imdbID}>{item.Title}</p>
+                  <p key={index} onClick={()=>(handleArticle(index))} imdbId={item.imdbID}>{item.Title}</p>
                 </Link>
                 </>
               )):null}

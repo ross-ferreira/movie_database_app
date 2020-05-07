@@ -11,6 +11,9 @@ export const getData = (searchQuery) => (dispatch) =>{
             type:"settotalresponses",
             data: (data.Response === "False"? 0 : data.totalResults ),
         })
+        dispatch({
+            type:"setloading",
+        })
     });
 }
 export const refreshData = (pageQuery) => (dispatch) =>{
@@ -39,18 +42,4 @@ export const getMovieData = (idSearchQuery) => (dispatch) =>{
     });
 }
 
-
-        
-// console.log("searchdatafromapi",data);
-
-// dispatch({
-//     type:"setsearch",
-//     data: (data.Response === "False"? data : data.Search ),
-// })
-
-// ,
-// dispatch({
-//     type:"settotalresponses",
-//     data: (data.Response === "False"? 0 : data.totalResults ),
-// })
 

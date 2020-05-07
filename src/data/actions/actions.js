@@ -11,5 +11,11 @@
     }; 
   };
 
+  export const setLoading = () => {
+    return {
+      type: "setloading",
+    }; 
+  };
+
 
   

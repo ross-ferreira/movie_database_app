@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { reset } from '../../data/actions/actions'
+import { reset,setLoading } from '../../data/actions/actions'
 
 import { getData,refreshData } from '../../data/actions/api'
 
@@ -13,8 +13,9 @@ const mapStateToProps = (state) => {
         // srcImage: state.images[(state.counter -1)].url,
         movieArticle:state.movieArticle,
         searchResults:state.searchResults,
-        initalform:state.initalform,
+        initialform:state.initialform,
         currentPage:state.currentPage,
+        loading:state.loading,
     }
 }
 
@@ -28,6 +29,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         updateSearchPage: (pageQuery) => {
             dispatch(refreshData(pageQuery))
+        },
+        setLoading:() => {
+            dispatch( setLoading() );
         },
     }
 }
