@@ -4,5 +4,12 @@
     }; 
   };
 
+  export const setCurrentPageNo = (selectedPage) => {
+    return {
+      type: "SETCURRENTPAGE",
+      selectPage:selectedPage,
+    }; 
+  };
+
 
   

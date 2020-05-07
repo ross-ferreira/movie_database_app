@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 
 import { getMovieData} from '../data/actions/api'
 
+import Pages from './Pages'
+
 
 const mapStateToProps = (state) => {
     
@@ -37,18 +39,22 @@ const handleArticle= index => {
 
   return (
     <>
-      <header><h1>Search Results</h1></header>
-      <div class="searchResults">
-          {searchResults.map((item,index)=>(
-            <>
-            <p key={index}>{index +1})</p>
-            <Link to="/movie">
-              <p onClick={()=>(handleArticle(index))} imdbId={item.imdbID}>{item.Title}</p>
-            </Link>
-            </>
-          ))}
-      </div>
-
+      {searchResults.length < 1 ? null:
+      <>
+        <h1>Search Results</h1> 
+          <div class="searchResults">
+              {searchResults.Response !== "False" ? searchResults.map((item,index)=>(
+                <>
+                <p key={index}>{index +1})</p>
+                <Link to="/movie">
+                  <p onClick={()=>(handleArticle(index))} imdbId={item.imdbID}>{item.Title}</p>
+                </Link>
+                </>
+              )):null}
+            {searchResults.Response === "False" ? <h2>"No Results"</h2>:null}
+          </div>
+        </>
+      }
     </>
   );
 }
