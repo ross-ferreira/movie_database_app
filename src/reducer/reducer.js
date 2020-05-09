@@ -12,6 +12,12 @@ const setCurrentPage = (state,{selectPage}) => ({ ...state, currentPage: selectP
 
 const loadingState = state => ({ ...state, loading: !state.loading});
 
+const setType = (state,{newTypeValue}) => ({ ...state, typeValue: newTypeValue});
+
+const setPlot = (state,{newPlotValue}) => ({ ...state, plotValue: newPlotValue});
+
+const setSearchForm = (state,{newSearchValue}) => ({ ...state, initialform: newSearchValue});
+
 export default (state, action) => {
   
     switch (action.type) {
@@ -21,6 +27,9 @@ export default (state, action) => {
         case "settotalresponses": return setTotalResponses (state,action);
         case "setloading": return loadingState (state);
         case "SETCURRENTPAGE": return setCurrentPage (state,action);
+        case "SETTYPE": return setType (state,action);
+        case "SETPLOT": return setPlot (state,action);
+        case "SETSEARCHFORM": return setSearchForm (state,action);
         case "RESET": return initial;
         default: return state;
     }

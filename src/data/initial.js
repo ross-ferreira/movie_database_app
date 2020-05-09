@@ -1,14 +1,14 @@
 export default {
-    counter:1,
-    movieArticle:[],
-    searchResults:[],
+    counter: 1,
+    movieArticle: [],
+    searchResults: [],
     initialform: {
-        type:"series",
-        title:"",
-        year:"",
-        plot:"short",
+        title: "",
+        year: "",
     },
-    totalResults:0,
-    currentPage:1,
-    loading:false,
+    totalResults: 0,
+    currentPage: 1,
+    loading: false,
+    typeValue: "series",
+    plotValue: 'short'
 }

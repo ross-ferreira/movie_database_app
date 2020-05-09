@@ -27,6 +27,9 @@ export const refreshData = (pageQuery) => (dispatch) =>{
             type:"settotalresponses",
             data: (data.Response === "False"? 0 : data.totalResults ),
         })
+        dispatch({
+            type:"setloading",
+        })
     });
 }
 
@@ -38,6 +41,9 @@ export const getMovieData = (idSearchQuery) => (dispatch) =>{
         dispatch({
             type:"setarticle",
             data: data,
+        })
+        dispatch({
+            type:"setloading",
         })
     });
 }

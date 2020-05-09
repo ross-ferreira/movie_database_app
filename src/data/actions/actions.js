@@ -17,5 +17,28 @@
     }; 
   };
 
+  export const setType = (selectedType) => {
+    return {
+      type: "SETTYPE",
+      newTypeValue:selectedType,
+    }; 
+  };
+
+  export const setPlot = (selectedPlot) => {
+    return {
+      type: "SETPLOT",
+      newPlotValue:selectedPlot,
+    }; 
+  };
+
+
+  export const setSearchForm = (formValues) => {
+    return {
+      type: "SETSEARCHFORM",
+      newSearchValue:formValues,
+    }; 
+  };
+
+
 
   

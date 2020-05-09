@@ -1,0 +1,50 @@
+.searchResults {
+    display:grid;
+    grid-template-rows: repeat(2, 0.5fr);
+    grid-template-columns: repeat(5, 0.5fr);
+    grid-gap: 20px;
+}
+
+.search-results-cont {
+    display: flex;
+    flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+}
+
+
+.poster-search-results {
+	object-fit: cover;
+	overflow: hidden;
+}
+.poster-img-results {
+	display: block;
+    height: 20vh; 
+    width: auto;
+}
+
+.search-result-year{
+    color:whitesmoke;
+}
+
+#pagination-cont {
+    text-align: center;
+}
+
+.pagination {
+    justify-content: center;
+
+}
+
+.no-search-results{
+    text-align: center;
+    color:whitesmoke;
+}
+
+.title-search-results{
+    color:whitesmoke;
+}
+
+.page-link {
+    background-color: none;
+}

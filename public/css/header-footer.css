@@ -1,0 +1,82 @@
+/* Positioning */
+
+body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 10rem;
+}
+.main-footer {
+	position: absolute;
+	/* background-image: url("https://thumbs.gfycat.com/UnrulyMediumFinwhale-max-1mb.gif"); */
+	bottom: 0;
+	width: 100%;
+}
+
+.footer-text{
+	color: #555555;
+	text-align: center;
+	color:whitesmoke;
+	font-family: 'Ubuntu', sans-serif;
+    font-weight:700;
+	padding: 40px;
+}
+
+.typography-heading-cont{
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+}
+.main-header {
+	display:flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	
+}
+
+
+
+/* STYLES */
+.main-header {
+	/* background-image: url("https://thumbs.gfycat.com/UnrulyMediumFinwhale-max-1mb.gif"); */
+	padding: 10px 10px 20px 10px;
+}
+.sub-main-title{
+	padding:5px;
+	margin: 0px;
+	font-size: 1rem;
+	color: whitesmoke;
+}
+
+.main-title{
+	padding:5px;
+	margin: 0px;
+	font-size: 2rem;
+	color: whitesmoke;
+}
+
+@media screen and (max-width: 760px) {
+}
+
+
+
+@media screen and (max-width: 450px) {
+	.main-header {
+		width: 100%;
+	  	display:flex;
+		flex-direction: column;
+		flex-wrap: nowrap;
+		align-items: center;
+		justify-content: space-between;
+    }
+	.main-header {
+		padding: 10px 0px 20px 0px;
+	}
+
+	.footer-text{
+		padding: 20px;
+		font-size: 0.8rem;
+		}
+
+}

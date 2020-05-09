@@ -1,27 +1,5 @@
 import React, { Fragment,useState, Component, useEffect } from "react";
 
-import { connect } from 'react-redux';
-
-import { Link } from 'react-router-dom';
-
-import {setCurrentPageNo} from '../data/actions/actions'
-
-const mapStateToProps = (state) => {
-    
-    return {
-        searchResults:state.searchResults,
-        totalResults:state.totalResults,
-        currentPage:state.currentPage,
-    }
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-      setCurrentPage: (selectedPage) => {
-          dispatch(setCurrentPageNo(selectedPage))
-      }
-  }
-}
 
 const Pages = ({
     searchResults,
@@ -66,20 +44,20 @@ const Pages = ({
 
     return(
         <>
-            <nav>
+            <nav id="pagination-cont">
                 <ul className='pagination'>
                     <li onClick={pageCounter >= 1 ? handlePageCounterDec : null } className='page-link'>PREV</li>
-                {pageNosArr.map((item,index)=>(
+                    {pageNosArr.map((item,index)=>(
                     <li key={index} className='page-link' onClick={()=>{setCurrentPage(item);paginate(item)}}>
                         { item }
                     </li>
-                ))}
+                    ))}
                     <li onClick={ pageCounter > pageNeighboursNoArr.length -2 ? null : handlePageCounterInc } className='page-link'>NEXT</li>
-                    <li className='page-link'>LAST</li>
+                    {/* <li className='page-link'>LAST</li> */}
                  </ul>
             </nav>
         </>
     )
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(Pages)
+export default Pages;

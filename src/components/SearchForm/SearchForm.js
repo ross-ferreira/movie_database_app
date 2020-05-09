@@ -1,9 +1,11 @@
 import React, { Fragment, useState, Component, useEffect } from "react";
 
-import axios from 'axios';
 import SearchResults from '../SearchResults';
+
 import Pages from '../Pages'
-import { reset } from "../../data/actions/actions";
+
+import Carousel from '../Carousel';
+
 
 function SearchForm({
   getDataSet,
@@ -14,8 +16,14 @@ function SearchForm({
   setLoading,
   loading,
   searchResults,
+  typeValue,
+  handleSelectedType,
+  plotValue,
+  handleSelectedPlot,
+  handleFormSubmit,
+
 }) {
-;
+
   //Set Search Inputs
   const [formValues, setFormValues] = useState(initialform)
   const handleFormChange = (e) => setFormValues({
@@ -23,10 +31,12 @@ function SearchForm({
     [e.target.name]: e.target.value,
   });
 
+
   // Search Request to API Actions
-  let searchQuery = `?apikey=9bac2e43&type=${formValues.type}&s=${formValues.title}&y=${formValues.year}&page=${currentPage}`;
+  let searchQuery = `?apikey=9bac2e43&type=${typeValue}&s=${formValues.title}&y=${formValues.year}&plot=${plotValue}&page=${currentPage}`;
   const handleSearch = e => {
     e.preventDefault();
+    handleFormSubmit(formValues);
     setLoading();
     getDataSet(searchQuery);
   }
@@ -43,76 +53,110 @@ function SearchForm({
   //Change Page
   const paginate = (item) => {
     setLoading();
-    let pageQuery = `?apikey=9bac2e43&type=${formValues.type}&s=${formValues.title}&y=${formValues.year}&page=${item}`;
+    let pageQuery = `?apikey=9bac2e43&type=${typeValue}&s=${initialform.title}&y=${initialform.year}&plot=${plotValue}&page=${currentPage}`;
     updateSearchPage(pageQuery);
   }
 
   return (
-    <div>
-      <header><h1>Movie Database</h1></header>
-      <div className="titleSearch">
-        <form className="pb-5">
-          <label>Type</label>
-          <div className="input-group">
-            <select defaultValue={formValues.type} type="text" name="type" onChange={handleFormChange}>
-              <option value="series">Series</option>
-              <option value="movie">Movie</option>
-            </select>
+    <>
+      <body className="titleSearch">
+        <form className="searchForm">
+          <div className="type-box">
+            <label className="search-form-label">Type</label>
+            <div className="form-check">
+              <label>
+                  <input
+                      type="radio"
+                      name="type"
+                      value="series"
+                      checked={typeValue === "series"}
+                      onChange={(event) => handleSelectedType(event.target.value)}
+                      className="form-check-input"
+                  />Series
+              </label>
+              </div>
+              <div className="form-check">
+              <label>
+                  <input
+                      type="radio"
+                      name="type"
+                      value="movie"
+                      checked={typeValue === "movie"}
+                      onChange={(event) => handleSelectedType(event.target.value)}
+                      className="form-check-input"
+                  />Movie
+              </label>
+              </div>
           </div>
-          <label>Title</label>
-          <div className="input-group">
-            <input placeholder="Enter Title" onChange={handleFormChange} type="text" name="title" value={formValues.title} />
+          <div className="title-box" >
+            <label className="search-form-label">Title</label>
+            <div className="input-group">
+              <input placeholder="Enter Title" onChange={handleFormChange} type="text" name="title" value={formValues.title} />
+            </div>
+            <label className="search-form-label">Year</label>
+            <div className="input-group">
+              <input placeholder="Enter Year" onChange={handleFormChange} type="text" name="year" value={formValues.year} />
+            </div>
           </div>
-          <label>Year</label>
-          <div className="input-group">
-            <input placeholder="Enter Year" onChange={handleFormChange} type="text" name="year" value={formValues.year} />
-          </div>
-          <label>Plot</label>
-          <div className="input-group">
-            <select defaultValue={formValues.plot} type="text" name="plot" onChange={handleFormChange}>
-              <option value="short">Short</option>
-              <option value="full">Full</option>
-            </select>
-          </div>
+          <div className="plot-box">
+            <label className="search-form-label">Plot</label>
+            <div className="form-check">
+              <label>
+                  <input
+                      type="radio"
+                      name="plot"
+                      value="short"
+                      checked={plotValue === "short"}
+                      onChange={(event) => handleSelectedPlot(event.target.value)}
+                      className="form-check-input"
+                  />Short Movie
+              </label>
+              </div>
+              <div className="form-check">
+              <label>
+                  <input
+                      type="radio"
+                      name="plot"
+                      value="full"
+                      checked={plotValue === "full"}
+                      onChange={(event) => handleSelectedPlot(event.target.value)}
+                      className="form-check-input"
+                  />Full Length Movie
+              </label>
+            </div>
+            </div>
         </form>
-        <button onClick={handleSearch} className="btn btn-outline-success" type="submit">Search</button>
-        <button onClick={handleReset} className="btn btn-outline-danger" type="submit">Reset</button>
-        <div>
-          {formValues.type}
+        <div className="btn-box">
+          <button onClick={handleSearch} className="btn btn-outline-success" type="submit">Search</button>
+          <button onClick={handleReset} className="btn btn-outline-danger" type="submit">Reset</button>
         </div>
-        <div>
-          {formValues.title}
-        </div>
-        <div>
-          {formValues.year}
-        </div>
-        <div>
-          {formValues.plot}
-        </div>
-        {loading? <h1>LOADING.....</h1>:
-          <> 
-            <SearchResults />
-            {searchResults.length > 1 ? <Pages paginate={paginate}/> : null }
-          </>
-        }
+      </body>
+      {/* <div>
+        {typeValue}
       </div>
+      <div>
+        {formValues.title}
+      </div>
+      <div>
+        {formValues.year}
+      </div>
+      <div>
+        {plotValue}
+      </div> */}
+        {loading ? <h1>LOADING.....</h1> :
+        <>
+          <SearchResults />
+          {searchResults.length > 1 ? <Pages className="pagination-cont" paginate={paginate} /> : <div className="oscars-cont"><img clasName="oscars-imag"src="https://whnt.com/wp-content/uploads/sites/20/2017/01/ezgif-com-video-to-gif.gif"/></div> }
+        </>
+        }
+      
 
-    </div>
+    </>
   );
 }
 
 export default SearchForm;
 
-
-  // useEffect(() => {
-  //   getDataSet(searchQuery);
-  // }, []);
-
-//   const initalform={
-//     title:"",
-//     year:"",
-//     plot:"short",
-// }
 
 
 
