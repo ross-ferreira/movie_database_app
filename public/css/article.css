@@ -2,23 +2,46 @@
     color: whitesmoke;
 }
 
-.article-cont {
+.article-cont-parent {
     display: flex;
     flex-direction: column;
     align-items: center;   
 }
 
+.article-cont {
+    max-width: 40vw;   
+}
+.image-title-cont{
+    text-align: center;
+}
 .article-cont p {
     color:white  
 }
 
 .poster-article {
     object-fit: cover;
-	overflow: hidden;
+    overflow: hidden;
 }
 
 .poster-image {
-	display: block;
     width: auto;
-    height: 40vh;
+    max-height: 40vh;
 }
+
+.btn-cont-return{
+    margin: 0px 0px 15px 15px;
+}
+
+.main-header-article {
+    margin: 5px;
+    color: #fff;
+    text-shadow:
+      0 0 5px #fff,
+      0 0 10px #fff,
+      0 0 20px #fff,
+      0 0 40px #0ff,
+      0 0 80px #0ff,
+      0 0 90px #0ff,
+      0 0 100px #0ff,
+      0 0 150px #0ff;
+  }

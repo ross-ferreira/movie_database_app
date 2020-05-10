@@ -25,7 +25,7 @@ const handleArticle= index => {
       {searchResults.length < 1 ? null:
       <>
         <h1 className="title-search-results">Search Results</h1>
-        <h2 className="no-search-results">No of Results: {totalResults}</h2> 
+        <h2 className="no-search-results">No. Results: {totalResults}</h2> 
           <div class="searchResults">
               {searchResults.Response !== "False" ? searchResults.map((item,index)=>(
                 <div className="search-results-cont">
@@ -38,8 +38,8 @@ const handleArticle= index => {
                   <p key={index} className="search-result-year">{item.Year}</p>
                 </div>
               )):null}
-            {searchResults.Response === "False" ? <h2>"No Results"</h2>:null}
           </div>
+          {searchResults.Response === "False" ? <h2 className="no-search-results">"No Results-Search Again"</h2>:null}
         </>
       }
     </>

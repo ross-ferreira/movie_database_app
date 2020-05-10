@@ -16,7 +16,7 @@ body {
 	color: #555555;
 	text-align: center;
 	color:whitesmoke;
-	font-family: 'Ubuntu', sans-serif;
+	font-family: 'Oswald', sans-serif;
     font-weight:700;
 	padding: 40px;
 }
@@ -35,7 +35,8 @@ body {
 	
 }
 
-
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 
 /* STYLES */
 .main-header {
@@ -47,13 +48,24 @@ body {
 	margin: 0px;
 	font-size: 1rem;
 	color: whitesmoke;
+	font-family: 'Oswald', sans-serif;
 }
 
 .main-title{
 	padding:5px;
 	margin: 0px;
 	font-size: 2rem;
-	color: whitesmoke;
+	font-family: 'Kaushan Script', cursive;
+	color: #fff;
+    text-shadow:
+      0 0 5px #fff,
+      0 0 10px #fff,
+      0 0 20px #fff,
+      0 0 40px #0ff,
+      0 0 80px #0ff,
+      0 0 90px #0ff,
+      0 0 100px #0ff,
+      0 0 150px #0ff;
 }
 
 @media screen and (max-width: 760px) {

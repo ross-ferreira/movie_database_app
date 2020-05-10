@@ -42,17 +42,21 @@ const Pages = ({
       console.log("pageCounter",pageCounter)
       console.log("pageNos",pageNos)
 
+   const style={
+        backgroundColor:"transparent",
+        cursor:"pointer",
+    }
     return(
         <>
             <nav id="pagination-cont">
                 <ul className='pagination'>
-                    <li onClick={pageCounter >= 1 ? handlePageCounterDec : null } className='page-link'>PREV</li>
+                    <li style={style} onClick={pageCounter >= 1 ? handlePageCounterDec : null } className='page-link'>PREV</li>
                     {pageNosArr.map((item,index)=>(
-                    <li key={index} className='page-link' onClick={()=>{setCurrentPage(item);paginate(item)}}>
+                    <li key={index} style={style} className='page-link' onClick={()=>{setCurrentPage(item);paginate(item)}}>
                         { item }
                     </li>
                     ))}
-                    <li onClick={ pageCounter > pageNeighboursNoArr.length -2 ? null : handlePageCounterInc } className='page-link'>NEXT</li>
+                    <li style={style} onClick={ pageCounter > pageNeighboursNoArr.length -2 ? null : handlePageCounterInc } className='page-link'>NEXT</li>
                     {/* <li className='page-link'>LAST</li> */}
                  </ul>
             </nav>

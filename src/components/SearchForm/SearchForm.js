@@ -4,7 +4,7 @@ import SearchResults from '../SearchResults';
 
 import Pages from '../Pages'
 
-import Carousel from '../Carousel';
+import Loading from '../Loading';
 
 
 function SearchForm({
@@ -143,7 +143,7 @@ function SearchForm({
       <div>
         {plotValue}
       </div> */}
-        {loading ? <h1>LOADING.....</h1> :
+        {loading ? <h1><Loading/></h1> :
         <>
           <SearchResults />
           {searchResults.length > 1 ? <Pages className="pagination-cont" paginate={paginate} /> : <div className="oscars-cont"><img clasName="oscars-imag"src="https://whnt.com/wp-content/uploads/sites/20/2017/01/ezgif-com-video-to-gif.gif"/></div> }
