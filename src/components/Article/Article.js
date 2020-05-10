@@ -1,4 +1,4 @@
-import React, { Fragment,useState, Component, useEffect } from "react";
+import React from "react";
 
 import { Link } from 'react-router-dom';
 
@@ -22,7 +22,7 @@ function Article ({
           <div className="article-cont">
             <div className="image-title-cont">
               <picture className="poster-article">
-                <img className="poster-image" src={movieArticle.Poster} />
+                <img alt="poster-movie" className="poster-image" src={movieArticle.Poster} />
               </picture>
               <h1 className="main-header-article">{movieArticle.Title}</h1>
             </div>

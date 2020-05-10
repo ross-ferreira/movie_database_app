@@ -10,7 +10,7 @@ class Footer extends Component {
         return (
             <>
                 <footer className="main-footer">
-                <p class="footer-text">Master Movies Database - Designed by Ross Ferreira &copy; 2020</p>
+                <p className="footer-text">Master Movies Database - Designed by Ross Ferreira &copy; 2020</p>
                 </footer>
             </>
         );

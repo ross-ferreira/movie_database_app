@@ -1,7 +1,5 @@
 import initial from '../data/initial'
 
-const counterIncrease = state => ({ ...state, count: state.count + 1 });
-
 const setSearchResults = (state,{data}) => ({ ...state, searchResults: data });
 
 const setMovieArticle = (state,{data}) => ({ ...state, movieArticle: data });
@@ -21,7 +19,6 @@ const setSearchForm = (state,{newSearchValue}) => ({ ...state, initialform: newS
 export default (state, action) => {
   
     switch (action.type) {
-        case "INCREMENT": return counterIncrease (state);
         case "setsearch": return setSearchResults (state,action);
         case "setarticle": return setMovieArticle (state,action);
         case "settotalresponses": return setTotalResponses (state,action);

@@ -1,4 +1,4 @@
-import React, { Fragment,useState, Component, useEffect } from "react";
+import React, { useState } from "react";
 
 
 const Pages = ({
@@ -22,8 +22,8 @@ const Pages = ({
     for (let i = 1 ;i < pageNeighboursNo +1 ; i++){
         pageNeighboursNoArr.push(i);
     }
-    console.log("pageNeighboursNo",pageNeighboursNo)
-    console.log("pageNeighboursNoArr",pageNeighboursNoArr)
+    // console.log("pageNeighboursNo",pageNeighboursNo)
+    // console.log("pageNeighboursNoArr",pageNeighboursNoArr)
 
 
 //Set Page Neighbours
@@ -39,8 +39,8 @@ const Pages = ({
         setPageCounter(pageCounter - 1)
     }
 
-      console.log("pageCounter",pageCounter)
-      console.log("pageNos",pageNos)
+    //   console.log("pageCounter",pageCounter)
+    //   console.log("pageNos",pageNos)
 
    const style={
         backgroundColor:"transparent",

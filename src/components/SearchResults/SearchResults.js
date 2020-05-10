@@ -1,4 +1,4 @@
-import React, { Fragment,useState, Component, useEffect } from "react";
+import React from "react";
 
 import { Link } from 'react-router-dom';
 
@@ -26,16 +26,16 @@ const handleArticle= index => {
       <>
         <h1 className="title-search-results">Search Results</h1>
         <h2 className="no-search-results">No. Results: {totalResults}</h2> 
-          <div class="searchResults">
+          <div className="searchResults">
               {searchResults.Response !== "False" ? searchResults.map((item,index)=>(
                 <div className="search-results-cont">
-                  <picture key={index} className="poster-search-results">
-                    <img key={index} className="poster-img-results" src={item.Poster}/>
+                  <picture key={index + 1} className="poster-search-results">
+                    <img alt="search-poster" key={index} className="poster-img-results" src={item.Poster}/>
                   </picture>
                   <Link to="/movie">
                     <p key={index} onClick={()=>(handleArticle(index))} imdbId={item.imdbID}>{item.Title}</p>
                   </Link>
-                  <p key={index} className="search-result-year">{item.Year}</p>
+                  <p key={index + 2} className="search-result-year">{item.Year}</p>
                 </div>
               )):null}
           </div>

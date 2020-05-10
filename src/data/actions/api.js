@@ -2,7 +2,7 @@ import axios from '../axios';
 
 export const getData = (searchQuery) => (dispatch) =>{
     axios.get(searchQuery).then(({ data })=>{
-        console.log("searchdatafromapi",data);
+        // console.log("searchdatafromapi",data);
         dispatch({
             type:"setsearch",
             data: (data.Response === "False"? data : data.Search ),
@@ -18,7 +18,7 @@ export const getData = (searchQuery) => (dispatch) =>{
 }
 export const refreshData = (pageQuery) => (dispatch) =>{
     axios.get(pageQuery).then(({ data })=>{
-        console.log("searchdatafromapi",data);
+        // console.log("searchdatafromapi",data);
         dispatch({
             type:"setsearch",
             data: (data.Response === "False"? data : data.Search ),
@@ -36,7 +36,7 @@ export const refreshData = (pageQuery) => (dispatch) =>{
 export const getMovieData = (idSearchQuery) => (dispatch) =>{
     axios.get(idSearchQuery).then(({ data })=>{
         
-        console.log("movieDatafromapi",data);
+        // console.log("movieDatafromapi",data);
 
         dispatch({
             type:"setarticle",
