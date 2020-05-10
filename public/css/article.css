@@ -9,7 +9,7 @@
 }
 
 .article-cont {
-    max-width: 40vw;   
+    max-width: 60vw;   
 }
 .image-title-cont{
     text-align: center;
@@ -33,7 +33,7 @@
 }
 
 .main-header-article {
-    margin: 5px;
+    margin: 10px;
     color: #fff;
     text-shadow:
       0 0 5px #fff,
@@ -45,3 +45,29 @@
       0 0 100px #0ff,
       0 0 150px #0ff;
   }
+
+@media screen and (max-width: 768px) {
+    .article-cont {
+        max-width: 80vw;
+        margin-top: 10px;   
+    }
+    .poster-image {
+        width: auto;
+        max-height: 30vh;
+    }
+    .main-header-article {
+        margin: 5px;
+        font-size: 2em;
+      }
+}
+  @media screen and (max-width: 450px) {
+    .article-cont {
+        max-width: 80vw;
+        margin-top: 10px;   
+    }
+    .poster-image {
+        width: auto;
+        max-height: 20vh;
+
+    }
+}

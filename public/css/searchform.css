@@ -1,56 +1,59 @@
-.titleSearch {
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+.search-image {
+    max-height: 5vh;
+}
+
+.search-form-new {
 	display:flex;
 	flex-direction: row;
-	align-items: center;
+    align-items: center;
     justify-content: center;
-    background-image: url("https://thumbs.gfycat.com/UnrulyMediumFinwhale-max-1mb.gif");
-    padding:10px;
-	
+}
+.search-form-new {
+    padding: 30px;
 }
 
-.searchForm {
-	display:flex;
-	flex-direction: row;
-	/* align-items: center;
-    justify-content: center; */
-	
+.all-btn, .new-src-btn {
+    font-family: 'Oswald', sans-serif;
+    background-color: #424242;
+    color: whitesmoke;
+    padding: 4px;
 }
 
-.type-box, .title-box, .plot-box, .btn-box {
+.dropdown-box {
     padding: 15px;
     border: grey 2px solid;
     margin: 20px 5px 20px 5px;
     border-radius: 10px;
     background-color: black;
-    color: whitesmoke; 
+    color: whitesmoke;
+    max-width: 50vw;
+    z-index: 100; 
 }
-
-.btn-box  {
-    display:flex;
-    flex-direction: column;
+.dropdown-box {
+	display:flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+	align-items: center;
     justify-content: center;
-    height: 25vh;
-}
-.btn-box button {
-    margin: 5px;
+    position: absolute;
 }
 
+.title-box, .plot-box, .type-box {
+    padding: 10px;
+}
 
-.oscars-cont {
-    display:block;
-    text-align: center;
-    
-    /* background-image: url("https://thumbs.gfycat.com/UnrulyMediumFinwhale-max-1mb.gif"); */
-}
-.oscars-imag {
-    height:auto;
-    width: 80%;
-}
 .search-form-label {
     display:block;
     text-align: center;
     padding:5px;
     margin:5px;
+    font-family: 'Oswald', sans-serif;
+}
+.search-form-input{
+    font-family: 'Oswald', sans-serif;
+    border: none;
+    padding: 3px;
 }
 /* radio buttons
 https://codepen.io/AngelaVelasquez/pen/Eypnq */
@@ -68,3 +71,82 @@ https://codepen.io/AngelaVelasquez/pen/Eypnq */
       0 0 100px #0ff,
       0 0 150px #0ff;
   }
+
+
+.oscars-cont {
+    display:block;
+    text-align: center;
+    z-index: -1;
+    
+    /* background-image: url("https://thumbs.gfycat.com/UnrulyMediumFinwhale-max-1mb.gif"); */
+}
+.oscars-imag {
+    height:auto;
+    max-width: 50%;
+    z-index: -1;
+}
+
+.dropdown-box-close{
+    top:0;
+    float: left;
+    z-index: 100;
+}
+
+
+.dropdown-box-close {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    opacity: 0.3;
+  }
+  .dropdown-box-close:hover {
+    opacity: 1;
+  }
+  .dropdown-box-close:before, .dropdown-box-close:after {
+    position: absolute;
+    left: 15px;
+    height: 33px;
+    width: 2px;
+    background-color: #333;
+  }
+  
+  @media screen and (max-width: 450px) {
+    .dropdown-box {
+        display:flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+    }
+
+
+}
+
+  /* .titleSearch {
+	display:flex;
+	flex-direction: row;
+	align-items: center;
+    justify-content: center;
+    background-image: url("https://thumbs.gfycat.com/UnrulyMediumFinwhale-max-1mb.gif");
+    padding:10px;
+	
+} */
+
+/* .btn-box  {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 25vh;
+}
+.btn-box button {
+    margin: 5px;
+} */
+
+
+/* .searchForm {
+	display:flex;
+	flex-direction: row;
+	align-items: center;
+    justify-content: center;
+} */

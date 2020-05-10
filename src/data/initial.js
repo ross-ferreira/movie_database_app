@@ -14,6 +14,6 @@ export default {
     totalResults: 0,
     currentPage: 1,
     loading: false,
-    typeValue: "series",
-    plotValue: 'short'
+    typeValue: "movie",
+    plotValue: 'full'
 }
