@@ -78,10 +78,8 @@ https://codepen.io/AngelaVelasquez/pen/Eypnq */
     display:block;
     text-align: center;
     z-index: -1;
-    
-    /* background-image: url("https://thumbs.gfycat.com/UnrulyMediumFinwhale-max-1mb.gif"); */
 }
-.oscars-imag {
+.oscars-image {
     height:auto;
     max-width: 50%;
     z-index: -1;
@@ -120,7 +118,9 @@ https://codepen.io/AngelaVelasquez/pen/Eypnq */
         justify-content: center;
         position: absolute;
     }
-
+    .oscars-image {
+        width: 50%;
+    }
 
 }
 
