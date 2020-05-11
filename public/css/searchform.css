@@ -18,12 +18,13 @@
     background-color: #424242;
     color: whitesmoke;
     padding: 4px;
+    cursor: pointer;
 }
 
 .dropdown-box {
     padding: 15px;
-    border: grey 2px solid;
-    margin: 20px 5px 20px 5px;
+    border: #424242 2px solid;
+    margin: 20px 5px 20px 100px;
     border-radius: 10px;
     background-color: black;
     color: whitesmoke;

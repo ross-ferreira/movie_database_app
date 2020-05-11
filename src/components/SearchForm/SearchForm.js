@@ -58,7 +58,7 @@ function SearchForm({
   //Change Page
   const paginate = (item) => {
     setLoading();
-    let pageQuery = `?apikey=9bac2e43&type=${typeValue}&s=${initialform.title}&y=${initialform.year}&plot=${plotValue}&page=${currentPage}`;
+    let pageQuery = `?apikey=9bac2e43&type=${typeValue}&s=${initialform.title}&y=${initialform.year}&plot=${plotValue}&page=${item}`;
     updateSearchPage(pageQuery);
   }
 
@@ -141,7 +141,7 @@ function SearchForm({
       {loading ? <h1><Loading /></h1> :
         <>
           <SearchResults />
-          {searchResults.length > 1 ? <Pages className="pagination-cont" paginate={paginate} /> : <picture className="oscars-cont"><img alt="oscar-img" className="oscars-imag" src="https://whnt.com/wp-content/uploads/sites/20/2017/01/ezgif-com-video-to-gif.gif" /></picture>}
+          {searchResults.length > 1 ? <Pages className="pagination-cont" paginate={paginate} /> : <picture className="oscars-cont"><img alt="oscars-img" src="https://media1.giphy.com/media/3ohc0Y1TI0vawx60Sc/giphy.gif?cid=ecf05e47760a5d7a72c6e69f4d7133fcbecd47c441ce67fa&rid=giphy.gif" /></picture>}
         </>
       }
 
@@ -151,6 +151,4 @@ function SearchForm({
 }
 
 export default SearchForm;
-
-
 

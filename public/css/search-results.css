@@ -60,4 +60,8 @@
         grid-template-columns: repeat(2, 0.5fr);
         grid-gap: 20px;
     }
+
+    .poster-img-results {
+        max-width: 30vw;
+    }
 }
