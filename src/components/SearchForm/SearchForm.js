@@ -141,7 +141,7 @@ function SearchForm({
       {loading ? <h1><Loading /></h1> :
         <>
           <SearchResults />
-          {searchResults.length > 1 ? <Pages className="pagination-cont" paginate={paginate} /> : <picture className="oscars-cont"><img alt="oscars-img" src="https://media1.giphy.com/media/3ohc0Y1TI0vawx60Sc/giphy.gif?cid=ecf05e47760a5d7a72c6e69f4d7133fcbecd47c441ce67fa&rid=giphy.gif" /></picture>}
+          {searchResults.length > 1 ? <Pages className="pagination-cont" paginate={paginate} /> : <picture className="oscars-cont"><img alt="oscars-img" className="oscars-image" src="https://media1.giphy.com/media/3ohc0Y1TI0vawx60Sc/giphy.gif?cid=ecf05e47760a5d7a72c6e69f4d7133fcbecd47c441ce67fa&rid=giphy.gif" /></picture>}
         </>
       }
 
