@@ -1,0 +1,10 @@
+/*Atoms*/
+@import 'typography.css';
+@import 'buttons.css';
+
+/*Organism*/
+@import 'header-footer.css';
+@import 'searchform.css';
+@import 'search-results.css';
+@import 'article.css';
+@import 'loading.css';

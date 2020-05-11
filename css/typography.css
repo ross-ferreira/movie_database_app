@@ -1,0 +1,31 @@
+body,p,label {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 'normal';
+}
+
+h2, h3, h4, h5 {
+    color: black;
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    font-weight:700;
+    padding-top: 10px;
+}
+h1 {
+    font-family: 'Oswald', sans-serif;
+}
+
+
+
+@media screen and (max-width: 450px) {
+    body,p,label {
+        font-size: 0.5 rem;
+    }
+    
+    h2, h3, h4, h5 {
+        padding-top: 5px;
+        font-size: 0.5rem;
+    }
+
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
